@@ -1,1 +1,1 @@
-Extension of wodby/drupal-php:5.6 with xhprof installed and enabled
+Placeholder copy of wodby/drupal-php:7.1
