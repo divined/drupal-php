@@ -14,6 +14,8 @@ RUN set -ex; \
     \
     ./configure; \
     \
-    sudo make && sudo make install
+    sudo make && sudo make install; \
+    \
+    docker-php-ext-enable xhprof
 
 USER www-data
