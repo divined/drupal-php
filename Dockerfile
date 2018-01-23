@@ -12,6 +12,6 @@ RUN set -ex; \
     \
     phpize; \
     \
-    ./configure --with-php-config=/usr/bin/php-config7.0; \
+    ./configure --with-php-config=/usr/bin/php-config7.1; \
     \
     sudo make && sudo make install
