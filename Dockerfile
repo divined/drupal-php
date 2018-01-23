@@ -1,4 +1,4 @@
-FROM wodby/drupal-php:7.1
+FROM wodby/drupal-php:5.6
 
 RUN apk add --no-cache autoconf make gcc g++ re2c file && \
     pecl install -f xhprof-beta && \
