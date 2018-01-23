@@ -11,3 +11,5 @@ RUN set -ex; \
     docker-php-ext-enable xhprof; \
     \
     apk del --purge autoconf make gcc g++ re2c file
+    
+USER www-data
