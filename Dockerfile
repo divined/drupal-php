@@ -6,7 +6,7 @@ RUN set -ex; \
     \
     git clone https://github.com/longxinH/xhprof; \
     \
-    apk add --no-cache autoconf make gcc g++ re2c file; \
+    apk add --no-cache php7-dev autoconf make gcc g++ re2c file; \
     \
     cd xhprof/extension; \
     \
