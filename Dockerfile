@@ -16,6 +16,8 @@ RUN set -ex; \
     \
     sudo make && sudo make install; \
     \
-    docker-php-ext-enable xhprof
+    docker-php-ext-enable xhprof; \
+    \
+    apk del --purge php7-dev autoconf make gcc g++ re2c file
 
 USER www-data
