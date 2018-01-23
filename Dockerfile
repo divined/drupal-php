@@ -15,3 +15,5 @@ RUN set -ex; \
     ./configure; \
     \
     sudo make && sudo make install
+
+USER www-data
