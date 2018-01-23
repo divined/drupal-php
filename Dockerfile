@@ -4,10 +4,12 @@ USER root
 
 RUN set -ex; \
     \
-    apk add --no-cache autoconf make gcc g++ re2c file; \
+    git clone https://github.com/longxinH/xhprof; \
     \
-    pecl install -f xhprof-beta; \
+    cd xhprof/extension; \
     \
-    docker-php-ext-enable xhprof; \
+    phpize; \
     \
-    apk del --purge autoconf make gcc g++ re2c file
+    ./configure --with-php-config=/usr/bin/php-config7.0; \
+    \
+    sudo make && sudo make install
