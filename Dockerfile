@@ -8,6 +8,6 @@ RUN set -ex; \
     \
     pecl install -f xhprof-beta; \
     \
-    docker-php-ext-enable xhprof' \
+    docker-php-ext-enable xhprof; \
     \
     apk del --purge autoconf make gcc g++ re2c file
