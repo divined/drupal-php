@@ -24,8 +24,6 @@ RUN set -ex; \
     \
     sudo make && sudo make install; \
     \
-    docker-php-ext-install xml; \
-    \
     docker-php-ext-enable \
     xml \
     xhprof; \
