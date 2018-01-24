@@ -28,6 +28,7 @@ RUN set -ex; \
         postgresql-dev \
         rabbitmq-c-dev \
         php7-dev \
+	php-pear \
         yaml-dev; \
     \
     git clone https://github.com/longxinH/xhprof; \
