@@ -2,10 +2,18 @@ FROM wodby/drupal-php:7.1
 
 USER root
 
+ENV PHP_URL="https://secure.php.net/get/php-7.1.13.tar.xz/from/this/mirror"
+
 RUN set -ex; \
     \
     git clone https://github.com/longxinH/xhprof; \
     \
+    \
+	mkdir -p /usr/src; \
+	cd /usr/src; \
+	\
+	wget -O php.tar.xz "$PHP_URL"; \
+	\
     apk add --no-cache \
     php7-dev \
     php7-xml \
@@ -24,9 +32,13 @@ RUN set -ex; \
     \
     sudo make && sudo make install; \
     \
+    docker-php-ext-install \
+    simplexml \
+    xml; \
+    \
     docker-php-ext-enable \
+    simplexml \
     xml \
-    xmlrpc \
     xhprof; \
     \
     apk del --purge \
