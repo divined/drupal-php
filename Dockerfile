@@ -8,7 +8,7 @@ RUN set -ex; \
     \
     apk add --no-cache \
     php7-dev \
-    php7-pear \
+    php7-xml \
     autoconf \
     make \
     gcc \
@@ -26,11 +26,12 @@ RUN set -ex; \
     \
     docker-php-ext-enable \
     xml \
+    xmlrpc \
     xhprof; \
     \
     apk del --purge \
     php7-dev \
-    php7-pear \
+    php7-xml \
     autoconf \
     make \
     gcc \
