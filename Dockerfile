@@ -46,6 +46,22 @@ RUN set -ex; \
     xhprof \
     xml; \
     \
-    apk del --purge php7-dev autoconf make gcc g++ re2c file
+    su-exec www-data composer clear-cache; \
+    docker-php-source delete; \
+    apk del .build-deps; \
+    pecl clear-cache; \
+    \
+    rm -rf \
+        /usr/src/php/ext/ast \
+        /usr/src/php/ext/uploadprogress \
+        /usr/include/php \
+        /usr/lib/php/build \
+        /tmp/* \
+        /root/.composer \
+        /var/cache/apk/*; \
+    \
+    if [[ -z "${PHP_DEV}" ]]; then \
+        rm -rf /usr/src/php.tar.xz; \
+    fi;
 
 USER www-data
