@@ -8,12 +8,11 @@ RUN set -ex; \
     \
     git clone https://github.com/longxinH/xhprof; \
     \
+    mkdir -p /usr/src; \
+    cd /usr/src; \
     \
-	mkdir -p /usr/src; \
-	cd /usr/src; \
-	\
-	wget -O php.tar.xz "$PHP_URL"; \
-	\
+    wget -O php.tar.xz "$PHP_URL"; \
+    \
     apk add --no-cache \
     php7-dev \
     php7-xml \
