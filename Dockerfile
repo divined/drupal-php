@@ -47,7 +47,7 @@ RUN set -ex; \
 	\
     docker-php-source extract; \
     \
-    pecl install xml; \
+    docker-php-ext-install xml; \
     \
     docker-php-ext-enable \
     xhprof \
