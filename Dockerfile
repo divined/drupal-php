@@ -9,6 +9,7 @@ RUN set -ex; \
     git clone https://github.com/longxinH/xhprof; \
     \
     apk add --no-cache \
+    libxml2 \
     php7-dev \
     php7-xml \
     autoconf \
@@ -41,6 +42,7 @@ RUN set -ex; \
     xhprof; \
     \
     apk del --purge \
+    libxml2 \
     php7-dev \
     php7-xml \
     autoconf \
