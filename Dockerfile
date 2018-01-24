@@ -18,6 +18,12 @@ RUN set -ex; \
     \
     docker-php-ext-enable xhprof; \
     \
+    docker-php-source extract; \
+    \
+    if [[ "${PHP_VERSION}" == "7.1.12" ]]; then \
+        patch -d /usr/src/php -p1 < /usr/src/2955.patch; \
+    fi; \
+    \
     docker-php-ext-install xml; \
     \
     docker-php-ext-enable xml; \
