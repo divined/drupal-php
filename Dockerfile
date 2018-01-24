@@ -2,6 +2,8 @@ FROM wodby/drupal-php:7.1
 
 USER root
 
+ENV PHP_URL="https://secure.php.net/get/php-7.1.13.tar.xz/from/this/mirror" PHP_ASC_URL="https://secure.php.net/get/php-7.1.13.tar.xz.asc/from/this/mirror"
+
 RUN set -ex; \
     \
     apk add --update --no-cache --virtual .build-deps \
@@ -38,6 +40,11 @@ RUN set -ex; \
     \
     sudo make && sudo make install; \
     \
+    mkdir -p /usr/src; \
+	cd /usr/src; \
+	\
+	wget -O php.tar.xz "$PHP_URL"; \
+	\
     docker-php-source extract; \
     \
     pecl install xml; \
