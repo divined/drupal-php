@@ -4,9 +4,31 @@ USER root
 
 RUN set -ex; \
     \
-    git clone https://github.com/longxinH/xhprof; \
+    apk add --update --no-cache --virtual .build-deps \
+        autoconf \
+        cmake \
+        build-base \
+        bzip2-dev \
+        freetype-dev \
+        geoip-dev \
+        icu-dev \
+        imagemagick-dev \
+        imap-dev \
+        jpeg-dev \
+        libjpeg-turbo-dev \
+        libmemcached-dev \
+        libmcrypt-dev \
+        libpng-dev \
+        libtool \
+        libxslt-dev \
+        openldap-dev \
+        pcre-dev \
+        postgresql-dev \
+        rabbitmq-c-dev \
+        php7-dev \
+        yaml-dev; \
     \
-    apk add --no-cache php7-dev autoconf make gcc g++ re2c file; \
+    git clone https://github.com/longxinH/xhprof; \
     \
     cd xhprof/extension; \
     \
@@ -16,17 +38,13 @@ RUN set -ex; \
     \
     sudo make && sudo make install; \
     \
-    docker-php-ext-enable xhprof; \
-    \
     docker-php-source extract; \
-    \
-    if [[ "${PHP_VERSION}" == "7.1.12" ]]; then \
-        patch -d /usr/src/php -p1 < /usr/src/2955.patch; \
-    fi; \
     \
     docker-php-ext-install xml; \
     \
-    docker-php-ext-enable xml; \
+    docker-php-ext-enable \
+    xhprof \
+    xml; \
     \
     apk del --purge php7-dev autoconf make gcc g++ re2c file
 
