@@ -52,4 +52,4 @@ RUN set -ex; \
     re2c \
     file
 
-USER www-data
+USER www-data 
