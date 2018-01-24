@@ -30,6 +30,14 @@ RUN set -ex; \
     xml \
     xhprof; \
     \
-    apk del --purge php7-dev autoconf make gcc g++ re2c file
+    apk del --purge \
+    php7-dev \
+    php7-pear \
+    autoconf \
+    make \
+    gcc \
+    g++ \
+    re2c \
+    file
 
 USER www-data
