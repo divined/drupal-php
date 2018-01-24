@@ -17,6 +17,7 @@ RUN set -ex; \
     gcc \
     g++ \
     re2c \
+    curl \
     file; \
     \
     cd xhprof/extension; \
@@ -41,6 +42,12 @@ RUN set -ex; \
     xml \
     xhprof; \
     \
+    curl https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar -o /usr/local/bin/phpcs.phar; \
+    \
+    chmod +x /usr/local/bin/phpcs.phar; \
+    \
+    ln -s /usr/local/bin/phpcs.phar /usr/local/bin/phpcs; \
+    \
     apk del --purge \
     libxml2-dev \
     php7-dev \
@@ -50,6 +57,8 @@ RUN set -ex; \
     gcc \
     g++ \
     re2c \
+    curl \
     file
+
 
 USER www-data 
