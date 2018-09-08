@@ -42,7 +42,6 @@ RUN set -ex; \
     docker-php-ext-enable \
     simplexml \
     xml \
-    gmp \
     xhprof; \
     \
     curl https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar -o /usr/local/bin/phpcs.phar; \
@@ -61,7 +60,7 @@ RUN set -ex; \
     g++ \
     re2c \
     curl \
-    file
+    file 
 
 
 USER www-data 
