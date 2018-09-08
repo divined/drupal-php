@@ -59,9 +59,6 @@ RUN set -ex; \
     re2c \
     curl \
     file
-    
-RUN apk add --update --no-cache gmp gmp-dev \
-    && docker-php-ext-install gmp
 
 
 USER www-data 
