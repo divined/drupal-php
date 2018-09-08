@@ -18,7 +18,8 @@ RUN set -ex; \
     g++ \
     re2c \
     curl \
-    file; \
+    file \
+    gmp-dev; \
     \
     cd xhprof/extension; \
     \
@@ -35,11 +36,13 @@ RUN set -ex; \
     \
     docker-php-ext-install \
     simplexml \
-    xml; \
+    xml \
+    gmp; \
     \
     docker-php-ext-enable \
     simplexml \
     xml \
+    gmp \
     xhprof; \
     \
     curl https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar -o /usr/local/bin/phpcs.phar; \
