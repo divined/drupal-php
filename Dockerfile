@@ -18,8 +18,7 @@ RUN set -ex; \
     g++ \
     re2c \
     curl \
-    file \
-    gmp-dev; \
+    file; \
     \
     cd xhprof/extension; \
     \
@@ -36,8 +35,7 @@ RUN set -ex; \
     \
     docker-php-ext-install \
     simplexml \
-    xml \
-    gmp; \
+    xml; \
     \
     docker-php-ext-enable \
     simplexml \
@@ -60,7 +58,10 @@ RUN set -ex; \
     g++ \
     re2c \
     curl \
-    file 
+    file
+    
+RUN apk add --update --no-cache gmp gmp-dev \
+    && docker-php-ext-install gmp
 
 
 USER www-data 
